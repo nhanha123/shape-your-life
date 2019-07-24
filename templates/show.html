@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style1.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body >
+    <div class="header">
+        <h1>Shape Your Life!</h1>
+    </div>
+    <div class="icon-bar">
+        <a href="/showUsers"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="/newTip"><i class="fa fa-info-circle"></i> Share a tip!</a>
+        <a href="/findGym"><i class="fa fa-search"></i> Directions!</a>
+        <a href="/chat"><i class="fa fa-fw fa-user"></i> Chat</a>
+        <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+    </div>
+    <div class= "content3">
+        {% for tips in x %}
+        <h1>{{tips.tips}}</h1>
+        <h4>{{tips.description}}</h4>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

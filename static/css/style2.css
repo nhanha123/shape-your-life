@@ -1,0 +1,98 @@
+.header {
+    padding: 15px; /* some padding */
+    text-align: center; /* center the text */
+    background-image: linear-gradient(#606c88, #3f4c6b);
+    color: #818181; /* white text color */
+    box-shadow: 10px 10px 5px #aaaaaa;
+  }
+  
+  /* Increase the font size of the <h1> element */
+  .header h1 {
+    font-size: 40px;
+  }
+
+.icon-bar {
+  width: 100%;
+  /* background-color: #555; */
+  overflow: auto;
+}
+
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  /* color: white; */
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+/* Style the sidebar - fixed full height */
+/* .sidebar {
+  margin-top:100px;
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0; */
+  /* background-color: rgb(240, 240, 240); */
+  /* overflow-x: hidden;
+  padding-top: 16px;
+  display: inline-block; */
+  /* box-shadow: 10px 10px 5px #aaaaaa; */
+/* } */
+
+/* Style sidebar links */
+/* .sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+} */
+
+/* Style links on mouse-over */
+/* .sidebar a:hover {
+  color: black;
+} */
+
+/* Style the main content */
+/* .main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  /* padding: 0px 10px;
+} */
+
+/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+/* @media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+} */
+.message{
+    display: inline-block;
+    width: 400px;
+    margin-left: 50px;
+    margin-top: 50px;
+    
+}
+.users{
+    width: 300px;
+    margin-left: 1000px;
+    display: inline-block;
+    vertical-align: top;
+    overflow: auto;
+    overflow: auto;
+}
+.users label{
+  margin-top: 20px;
+}
+.users input{
+  margin-left: 5px;
+}

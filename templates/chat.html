@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Shape Your Life!</h1>
+    </div>
+    <div class="icon-bar">
+        <a href="/showUsers"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="/newTip"><i class="fa fa-info-circle"></i> Share a tip!</a>
+        <a href="/findGym"><i class="fa fa-search"></i> Find A Gym! </a>
+        <a href="/chat"><i class="fa fa-fw fa-user"></i> Chat</a>
+        <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+    </div>
+    <div class="message">
+        <h2>Messages Received:</h2>
+        {% for i in message %}
+        <p>{{i.first_name}} {{i.created_at}} :
+            {{i.message}} <a href="/delete1/{{i['id']}}">Delete</a></p>
+        {% endfor %}
+    </div>
+    <div class='users'>
+        <h3>Users:</h3>
+
+        {% for x in user %}
+        <form action="/send" method='post'>
+            <label>{{ x.first_name }}</label>
+            <input type='hidden' name='recipient_id' value='{{x.id}}'>
+            <input type='message' name="message" id='message'>
+            <input type='submit' value='send'>
+        </form>
+        {% endfor %}
+
+    </div>
+</body>
+
+</html>

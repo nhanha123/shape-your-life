@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style1.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+    // document.getElementById('getData').addEventListener('submit', getData, false);
+    // function getData(event){
+    //   let query = document.getElementById('query').value;
+    //   let postResults = document.getElementById('postResults').value;
+    //   let api_key = "AIzaSyDeddmhR0Krxlrp-tiR1qFaix5Xrabqqr4";
+
+    //   fetch('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + query + '&key=' + api_key, {
+    //     method: 'POST',
+    //     headers: new Headers(),
+    //     body: JSON.stringify({query:query, postResults:postResults})
+    //   }).then((res) => res.json())
+    //   .then((data) => console.log(data))
+    //   .catch((err) => console.log(err))
+    // }
+    
+    $(document).ready(function () {
+      $('#getData').submit(function () {
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var api_key = "AIzaSyDeddmhR0Krxlrp-tiR1qFaix5Xrabqqr4";
+        var query = $('input:text[name=query]').val();
+        $.get( "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "&key=" + api_key, function (results) {
+            var html = '';
+            html += "<p>" + results['name'] + "</p>";
+            html += "<p>" + "Address:" + results['formatted_address'] + "</p>";
+            $('#results').html(html);
+          }, 'jsonp');
+        });
+        return false;
+      })
+  </script>
+</head>
+
+<body>
+  <div class="header">
+    <h1>Shape Your Life!</h1>
+  </div>
+  <div class="icon-bar">
+    <a href="/showUsers"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="/newTip"><i class="fa fa-info-circle"></i> Share a tip!</a>
+    <a href="/findGym"><i class="fa fa-search"></i> Directions!</a>
+    <a href="/chat"><i class="fa fa-fw fa-user"></i> Chat</a>
+    <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+  </div>
+  <!-- <div id="map" style="width: 100%; height: 750px;"></div> -->
+  <form id="getData">
+    <label for="location"> Search Gyms In Your City:
+      <input type="text" name="query" id="query">
+    </label>
+    <input type='submit' name='submit' />
+  </form>
+  <p id="postResults"></p>
+
+  <!-- <script>
+    document.getElementById('getData').addEventListener('submit', getData, false);
+    
+    function getData(){
+      var query = document.getElementById('query').value;
+      var api_key = "AIzaSyDeddmhR0Krxlrp-tiR1qFaix5Xrabqqr4";
+      fetch('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + query + '&key=' + api_key)
+        .then((res) => { return res.json().then((data) => {
+          for (i in data.results){
+            let icon = data.results[i].icon;
+            let name = data.results[i].name;
+            let address = data.results[i].formatted_address;
+            let ratings = data.results[i].ratings;
+            console.log(icon, name, address,ratings );
+
+          }
+          });
+        
+          }).catch((err) => {
+            console.log(err);
+          })
+    } -->
+   
+  </script>
+
+</body>
+
+</html>

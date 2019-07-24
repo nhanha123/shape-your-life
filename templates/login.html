@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body >
+
+    <div class="topnav">
+        <h1>Shape Your Life!</h1>
+        <div class="login-container">
+            <form action="login" method='post'>
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h2>Welcome to Shape Your Life!</h2>
+            <p>Take control of your life by taking control of your health! Join us today and take full advantage of what we have to offer!</p>
+            <h3>What we offer are:</h3>
+            <ul>
+                <li>Finding local gyms!</li>
+                <li>Interacting with your many peers!</li>
+                <li>Sharing different workouts and tips on different diets!</li>
+                <li>And many more!</li>
+            </ul>
+        </div>
+        <div class='reg'>
+            <h1>Register Here</h1>
+            <form action="add" method='post'>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="first_name" placeholder="First Name" name="first_name">
+                    </div>
+                </div>
+                {% with messages = get_flashed_messages(category_filter=["fname"]) %}
+                <!-- declare a variable called messages -->
+                {% if messages %}
+                <!-- check if there are any messages -->
+                {% for message in messages %}
+                <!-- loop through the messages -->
+                <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="last_name" placeholder="Last Name" name="last_name">
+                    </div>
+                </div>
+                {% with messages = get_flashed_messages(category_filter=["lname"]) %}
+                <!-- declare a variable called messages -->
+                {% if messages %}
+                <!-- check if there are any messages -->
+                {% for message in messages %}
+                <!-- loop through the messages -->
+                <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="email" placeholder="Email" name="email">
+                    </div>
+                </div>
+                {% with messages = get_flashed_messages(category_filter=["email"]) %}
+                <!-- declare a variable called messages -->
+                {% if messages %}
+                <!-- check if there are any messages -->
+                {% for message in messages %}
+                <!-- loop through the messages -->
+                <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                </div>
+                {% with messages = get_flashed_messages(category_filter=["pw"]) %}
+                <!-- declare a variable called messages -->
+                {% if messages %}
+                <!-- check if there are any messages -->
+                {% for message in messages %}
+                <!-- loop through the messages -->
+                <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="password" placeholder="Password Confirm" name="password_confirm">
+                    </div>
+                </div>
+                {% with messages = get_flashed_messages(category_filter=["pw_con"]) %}
+                <!-- declare a variable called messages -->
+                {% if messages %}
+                <!-- check if there are any messages -->
+                {% for message in messages %}
+                <!-- loop through the messages -->
+                <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Register!">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

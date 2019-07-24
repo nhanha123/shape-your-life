@@ -1,0 +1,53 @@
+.header {
+    padding: 15px; /* some padding */
+    text-align: center; /* center the text */
+    background-image: linear-gradient(#606c88, #3f4c6b);
+    color: #818181; /* white text color */
+    box-shadow: 10px 10px 5px #aaaaaa;
+  }
+  
+  /* Increase the font size of the <h1> element */
+  .header h1 {
+    font-size: 40px;
+  }
+
+.icon-bar {
+  width: 100%;
+  /* background-color: #555; */
+  overflow: auto;
+}
+
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  /* color: white; */
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+.content{
+    display: inline-block;
+    margin-left: 175px;
+    margin-top:25px;
+}
+
+.content3{
+  width: 800px;
+  height: 700px;
+  margin-left: 350px;
+  /* background-image: url('/static/paper.jpg'); */
+}
+.content3 h1{
+  text-align: center;
+  margin-top: 30px;
+}
